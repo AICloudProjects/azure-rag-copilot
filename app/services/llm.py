@@ -5,11 +5,20 @@ from openai import AzureOpenAI
 
 CHAT_MODEL = os.getenv("CHAT_MODEL", "gpt-4o-mini")
 
+from azure.identity import DefaultAzureCredential
+
+credential = DefaultAzureCredential()
 client = AzureOpenAI(
-    api_key=os.getenv("OPENAI_API_KEY"),
     azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_version="2024-05-01-preview"
+    api_version="2024-05-01-preview",
+    azure_ad_token_provider=credential.get_token
 )
+
+#client = AzureOpenAI(
+   # api_key=os.getenv("OPENAI_API_KEY"),
+   # azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+   # api_version="2024-05-01-preview"
+#)
 
 
 def generate_answer(context: str, question: str):

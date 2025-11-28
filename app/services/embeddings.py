@@ -2,13 +2,21 @@
 
 import os
 from openai import AzureOpenAI
+from azure.identity import DefaultAzureCredential
+
+credential = DefaultAzureCredential()
+client = AzureOpenAI(
+    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+    api_version="2024-05-01-preview",
+    azure_ad_token_provider=credential.get_token
+)
 
 # Azure OpenAI client (embedding + chat)
-client = AzureOpenAI(
-    api_key=os.getenv("OPENAI_API_KEY"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_version="2024-05-01-preview"
-)
+#client = AzureOpenAI(
+   #api_key=os.getenv("OPENAI_API_KEY"),
+    #azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+    #api_version="2024-05-01-preview"
+#)
 
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
 
