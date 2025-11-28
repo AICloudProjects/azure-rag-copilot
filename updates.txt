@@ -1,0 +1,5 @@
+v1 = API-key version
+
+v2 = still API-key code, but only env vars removed
+
+v3 = actual Managed Identity (MI) code (embeddings.py, llm.py, search.py, rag.py updated)
