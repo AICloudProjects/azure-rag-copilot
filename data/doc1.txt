@@ -1,0 +1,1 @@
+Azure Cognitive Search is a fully managed information retrieval service that provides rich indexing and querying capabilities. It supports keyword, semantic, and vector search, allowing developers to build powerful search experiences.

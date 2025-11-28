@@ -1,0 +1,44 @@
+{
+  "name": "documents-index",
+  "fields": [
+    {
+      "name": "id",
+      "type": "Edm.String",
+      "key": true,
+      "filterable": true,
+      "searchable": false
+    },
+    {
+      "name": "content",
+      "type": "Edm.String",
+      "searchable": true
+    },
+    {
+      "name": "source",
+      "type": "Edm.String",
+      "filterable": true,
+      "searchable": false
+    },
+    {
+      "name": "embedding",
+      "type": "Collection(Edm.Single)",
+      "searchable": true,
+      "dimensions": 1536,
+      "vectorSearchProfile": "vector-profile-1"
+    }
+  ],
+  "vectorSearch": {
+    "algorithms": [
+      {
+        "name": "hnsw-alg",
+        "kind": "hnsw"
+      }
+    ],
+    "profiles": [
+      {
+        "name": "vector-profile-1",
+        "algorithm": "hnsw-alg"
+      }
+    ]
+  }
+}

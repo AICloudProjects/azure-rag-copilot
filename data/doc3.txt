@@ -1,0 +1,1 @@
+Vector embeddings are numeric representations of text that capture semantic meaning. They allow AI systems to compare similarity between documents and improve retrieval in RAG applications.

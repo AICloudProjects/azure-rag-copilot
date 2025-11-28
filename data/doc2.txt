@@ -1,0 +1,1 @@
+Azure OpenAI Service enables enterprises to integrate GPT models into applications with enterprise-grade security and compliance. It supports embeddings, chat completion, and content generation workflows.
