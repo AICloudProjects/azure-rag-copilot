@@ -15,3 +15,6 @@ def healthz(): return {"status": "ok"}
 
 @app.get("/readyz")
 def readyz(): return {"ready": True, "env": settings.env}
+
+from app.utils.logging import RequestContextMiddleware
+app.add_middleware(RequestContextMiddleware)
