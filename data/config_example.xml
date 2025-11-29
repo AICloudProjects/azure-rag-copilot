@@ -1,0 +1,11 @@
+<Configuration>
+    <Service>
+        <Name>TelemetryProcessor</Name>
+        <Enabled>true</Enabled>
+        <BatchSize>1000</BatchSize>
+    </Service>
+    <Logging>
+        <Level>Info</Level>
+        <Path>/var/log/telemetry/processor.log</Path>
+    </Logging>
+</Configuration>

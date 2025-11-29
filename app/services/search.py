@@ -1,25 +1,17 @@
 # app/services/search.py
 
 import os
-import requests
 from azure.identity import DefaultAzureCredential
 
-# Environment variables
-AZURE_SEARCH_ENDPOINT = os.getenv("AZURE_SEARCH_ENDPOINT")
-AZURE_INDEX_NAME = os.getenv("AZURE_INDEX_NAME", "documents-index")
-SEARCH_API_VERSION = os.getenv("SEARCH_API_VERSION", "2024-05-01-preview")
-
-# Managed Identity credential
 credential = DefaultAzureCredential()
 
 def get_search_headers():
-    """Return AAD Bearer token headers for Azure Cognitive Search."""
-    token = credential.get_token("https://search.azure.com/.default").token
+    token = credential.get_token("https://search.azure.com/.default")
     return {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {token}"
+        "api-key": None,
+        "Authorization": f"Bearer {token.token}"
     }
-
 
 def vector_search(embedding: list, k: int = 3):
     """

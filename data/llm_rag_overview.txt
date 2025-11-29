@@ -1,0 +1,1 @@
+RAG (Retrieval-Augmented Generation) is an architecture where a Large Language Model retrieves relevant documents before generating an answer. This improves grounding, accuracy, and reduces hallucinations. RAG typically consists of a retriever, an index, an embedding model, and a generator model.
